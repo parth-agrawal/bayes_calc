@@ -22,7 +22,15 @@ like_hyp_f = float(trimmed_input())/100
 # compare the weightage of the two
 hyp_f = 1-hyp_t
 
-bayes = round((hyp_t * like_hyp_t)/(hyp_t * like_hyp_t + hyp_f * like_hyp_f), 4) * 100
+joint_true = hyp_t * like_hyp_t
+joint_false = hyp_f * like_hyp_f
+
+bayes = round((joint_true)/(joint_true + joint_false), 5) * 100
 
 print("The Bayesian probability that the hypothesis is true is:", bayes, "%")
+
+
+like_ratio = joint_true/joint_false
+print("The ratio between the joint probabilities is: ", like_ratio)
+
 
